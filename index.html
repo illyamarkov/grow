@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizontal Image Slider with Text</title>
+  <style>
+
+
+
+    .slider {
+      position: relative;
+      width: 500px;
+      overflow: hidden;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .slider-container {
+      display: flex;
+      transition: transform 0.3s ease;
+    }
+
+    .slider-content {
+      display: flex;
+    }
+
+    .slider img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 10px;
+      font-size: 24px;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .prev {
+      left: 0;
+    }
+
+    .next {
+      right: 0;
+    }
+
+    .slider-text {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="slider">
+    <div class="slider-container">
+      <div class="slider-content">
+        <!-- Add your images here -->
+        <img src="i.avif" alt="Image 1">
+        <img src="i2.jpeg" alt="Image 2">
+        <img src="i3.jpg" alt="Image 3">
+        <!-- Add more images as needed -->
+      </div>
+    </div>
+    <button class="slider-btn prev">&#8249;</button>
+    <button class="slider-btn next">&#8250;</button>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const sliderContainer = document.querySelector(".slider-container");
+      const prevBtn = document.querySelector(".prev");
+      const nextBtn = document.querySelector(".next");
+
+      let scrollAmount = 0;
+      const step = 500; // Adjust this value to change the distance each arrow click scrolls
+
+      prevBtn.addEventListener("click", () => {
+        scrollAmount = Math.max(scrollAmount - step, 0);
+        sliderContainer.style.transform = `translateX(-${scrollAmount}px)`;
+        updateText();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        const maxScrollAmount = sliderContainer.scrollWidth - sliderContainer.clientWidth;
+        scrollAmount = Math.min(scrollAmount + step, maxScrollAmount);
+        sliderContainer.style.transform = `translateX(-${scrollAmount}px)`;
+        updateText();
+      });
+
+      function updateText() {
+        const containerWidth = sliderContainer.clientWidth;
+        const currentImageIndex = Math.floor(scrollAmount / containerWidth);
+      }
+    });
+  </script>
+</body>
+</html>
