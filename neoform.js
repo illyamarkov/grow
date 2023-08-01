@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
           imageInput.value = imageLink;
       } else {
           console.log("Please select an image.");
-          imageInput.value = 'NO IMAGE';
+          imageInput.value = '';
       }
   }
 
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   return data.data.link; // Return the image link
               } else {
                   console.error("Image upload failed.");
-                  imageInput.value = 'ERROR';
+                  imageInput.value = '';
                   throw new Error("Image upload failed.");
               }
           })
