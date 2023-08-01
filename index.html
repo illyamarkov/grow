@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grow.</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap">
+  <link rel="icon" type="image/x-icon" href="/images/ico.svg">
+</head>
+<body>
+  <div class="container">
+    <div class="title">
+      <!-- TITLE content here -->
+      <h1>Grow.</h1>
+    </div>
+    <div class="slider">
+        <div class="slider-container">
+          <div class="slider-content">
+            <!-- Add your images here -->
+            <img src="/images/1.JPG" alt="Image 1">
+            <img src="/images/2.JPG" alt="Image 2">
+            <img src="/images/3.JPG" alt="Image 3">
+            <img src="/images/4.JPG" alt="Image 4">
+            <!-- Add more images as needed -->
+          </div>
+        </div>
+        <button class="slider-btn prev">&#8249;</button>
+        <button class="slider-btn next">&#8250;</button>
+      </div>
+      <script src="imgscroll.js"></script>
+      <hr>
+  <div class="container">
+    <div class="header">
+        <!-- HEADER content here -->
+        <h2>Hey!</h2>
+      </div>
+      <div class="body">
+        <!-- BODY content here -->
+        <p>
+            I'm Illya Markov, and you have found one of my drops! <br><br> 
+            You probably found this website after scanning a suspicious QR code near a plant on the 6th floor of MN. 
+            Well, I'll have you know that the "plant" is named Greg, and he needs your help! <br><br> 
+            I brought Greg here because this area looks so empty, and the large windows are totally wasted.
+            All the natural light was making Greg act up, so I had to let him have it.
+            Besides, I come here all the time, and it's nice to look at Greg instead of... concrete.<br><br> 
+            Unfortunately, Greg is just a plant, and cannot hunt for water on his own.
+            If you'd like, you can water him, and help him survive!
+            But, please check if the soil is already wet, as creating a pool of water for Greg may make him depressed.<br><br> 
+            If you scroll down, you'll probably find a gallery of comments and pictures of others who found Greg.
+            Feel free to add to it! I usually approve additions within an hour.<br><br> 
+            Long live Greg!
+        </p>
+      </div>
+  </div>
+    <hr>
+    <div class="image-div">
+      <!-- IMAGE DIV content here -->
+      <div class="container">
+        <div class="data-container" id="dataContainer">
+        </div>
+      </div>
+      <script src="spreadsheet.js"></script>
+    </div>
+    <div class="center-button">
+      <!-- BUTTON content here -->
+      <button class="post-button" id="openModal">Submit your own post!</button>
+    </div>
+  </div>
+
+
+  <div class="modal" id="myModal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSd7ZSyW2Q0Gqq9ylgmLft78WvadgJQkwETckDY_EDwH9HArIA/formResponse" method="post" target="hidden_iframe" onsubmit="handleFormSubmit(event)" id="growform">
+            <div class="row g-3">
+                <div id='visualFile'>
+                    <p>Select a pic with Greg!</p>
+                    <input type="file" accept="image/*" id="fileInput">
+                </div>
+                <div class="col-xl-12">
+                    <input type="text" name="entry.1451159632" class="form-input-field" placeholder="Name (optional)" style="height: 40px;">
+                </div>
+                <div class="col-xl-12">
+                    <input type="text" name="entry.450750384" id="mandatoryInput" class="form-input-field" placeholder="Message (mandatory)" style="height: 40px;" required>
+                </div>
+                <div class="col-xl-12">
+                    <p style="font-size: 18px;">Did you water?</p>
+                    <label class="switch">
+                        <input type="checkbox" name="entry.655408699" value="BOOL" style="accent-color: #000;">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="col-xl-12">
+                    <input type="text" name="entry.611530900" id="secretImageInput" placeholder="undefined" style="height: 55px;">
+                </div>
+                <div id='visualFile' style="margin-top:0px; margin-bottom:40px; ">
+                    <p>Submit</p>
+                    <button class="btn btn-dark w-100 py-3" type="submit" id="submitButton">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+  </div>
+  <script src="neoform.js"></script>
+</body>
+</html>
